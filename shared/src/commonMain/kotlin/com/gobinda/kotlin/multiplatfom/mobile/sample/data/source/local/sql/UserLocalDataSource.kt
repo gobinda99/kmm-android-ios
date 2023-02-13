@@ -22,14 +22,24 @@ class UserLocalDataSource constructor(
     override fun getUser(email: String): Flow<Result<User>> {
         return dao.selectByEmail(email).asFlow()
             .map {
-            Result.success(it.executeAsOne())
+            val user = it.executeAsOneOrNull()
+            if(user != null)  {
+                Result.success(user)
+            } else {
+                Result.failure(Exception())
+            }
         }.flowOn(dispatcher)
 
     }
 
     override suspend fun insertUser(user: User) {
-        return withContext(dispatcher) {
+        /* withContext(dispatcher) {
             with(user) {
+                dao.insertUser(email, name, password)
+            }
+        }*/
+        dao.transactionWithContext(dispatcher){
+            with(user){
                 dao.insertUser(email, name, password)
             }
         }
