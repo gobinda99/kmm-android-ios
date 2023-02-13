@@ -1,5 +1,6 @@
 package com.gobinda.kotlin.multiplatfom.mobile.sample
 
+import android.content.SharedPreferences
 import com.gobinda.kotlin.multiplatfom.mobile.sample.db.SampleDb
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.SharedPreferencesSettings

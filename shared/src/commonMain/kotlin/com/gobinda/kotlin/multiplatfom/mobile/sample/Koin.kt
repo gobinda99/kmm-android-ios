@@ -1,7 +1,5 @@
 package com.gobinda.kotlin.multiplatfom.mobile.sample
 
-//import co.touchlab.kermit.StaticConfig
-//import co.touchlab.kermit.platformLogWriter
 import client
 import com.gobinda.kotlin.multiplatfom.mobile.sample.data.UserRepository
 import com.gobinda.kotlin.multiplatfom.mobile.sample.data.UserRepositoryImpl
@@ -27,17 +25,6 @@ fun initKoin(appModule: Module): KoinApplication {
         )
     }
 
-    // Dummy initialization logic, making use of appModule declarations for demonstration purposes.
-   /* val koin = koinApplication.koin
-    // doOnStartup is a lambda which is implemented in Swift on iOS side
-    val doOnStartup = koin.get<() -> Unit>()
-    doOnStartup.invoke()
-
-    val kermit = koin.get<Logger> { parametersOf(null) }
-    // AppInfo is a Kotlin interface with separate Android and iOS implementations
-    val appInfo = koin.get<AppInfo>()
-    kermit.v { "App Id ${appInfo.appId}" }*/
-
     return koinApplication
 }
 
@@ -52,13 +39,6 @@ private val coreModule = module {
     single {
         client(get())
     }
-
-    // platformLogWriter() is a relatively simple config option, useful for local debugging. For production
-    // uses you *may* want to have a more robust configuration from the native platform. In KaMP Kit,
-    // that would likely go into platformModule expect/actual.
-    // See https://github.com/touchlab/Kermit
-    /*val baseLogger = Logger(config = StaticConfig(logWriterList = listOf(platformLogWriter())), "KampKit")
-    factory { (tag: String?) -> if (tag != null) baseLogger.withTag(tag) else baseLogger }*/
 
 }
 
