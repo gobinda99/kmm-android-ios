@@ -6,6 +6,7 @@ import com.russhwolf.settings.Settings
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
 import io.ktor.client.engine.darwin.*
+import kotlinx.coroutines.Dispatchers
 import org.koin.core.KoinApplication
 import org.koin.dsl.module
 import platform.Foundation.NSUserDefaults
@@ -23,6 +24,10 @@ fun initKoinIos(
 
 actual val platformModule = module {
     single<SqlDriver> { NativeSqliteDriver(SampleDb.Schema, "SampleDb") }
+
+    single {
+        Dispatchers.Default
+    }
 
     single { Darwin.create() }
 

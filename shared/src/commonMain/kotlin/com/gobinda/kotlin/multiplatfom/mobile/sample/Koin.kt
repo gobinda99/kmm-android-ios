@@ -3,6 +3,9 @@ package com.gobinda.kotlin.multiplatfom.mobile.sample
 //import co.touchlab.kermit.StaticConfig
 //import co.touchlab.kermit.platformLogWriter
 import client
+import com.gobinda.kotlin.multiplatfom.mobile.sample.data.UserRepository
+import com.gobinda.kotlin.multiplatfom.mobile.sample.data.UserRepositoryImpl
+import com.gobinda.kotlin.multiplatfom.mobile.sample.data.source.local.sql.UserLocalDataSource
 import com.gobinda.kotlin.multiplatfom.mobile.sample.db.SampleDb
 import kotlinx.coroutines.Dispatchers
 import org.koin.core.KoinApplication
@@ -13,6 +16,7 @@ import org.koin.core.module.Module
 import org.koin.core.parameter.parametersOf
 import org.koin.core.scope.Scope
 import org.koin.dsl.module
+import kotlin.math.sin
 
 fun initKoin(appModule: Module): KoinApplication {
     val koinApplication = startKoin {
@@ -38,20 +42,16 @@ fun initKoin(appModule: Module): KoinApplication {
 }
 
 private val coreModule = module {
-   /* single {
-        DatabaseHelper(
-            get(),
-            getWith("DatabaseHelper"),
-            Dispatchers.Default
-        )
-    }*/
 
     single { SampleDb(get()) }
+
+    single<UserRepository> {
+        val localData = UserLocalDataSource(get(), get())
+        UserRepositoryImpl(localData = localData, remoteData = localData , get())  }
 
     single {
         client(get())
     }
-
 
     // platformLogWriter() is a relatively simple config option, useful for local debugging. For production
     // uses you *may* want to have a more robust configuration from the native platform. In KaMP Kit,
