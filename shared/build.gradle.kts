@@ -29,7 +29,7 @@ kotlin {
                 // key:value store
                 implementation("com.russhwolf:multiplatform-settings:1.0.0")
                 // di
-                implementation("io.insert-koin:koin-core:3.3.2")
+                implementation("io.insert-koin:koin-core:3.3.3")
                 // log
                 implementation("io.github.aakira:napier:2.6.1")
                 // coroutine

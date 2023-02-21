@@ -3,9 +3,21 @@ import shared
 
 struct ContentView: View {
 	let greet = Greeting().greet()
+    
+    init(){
+        startKoin()
+    }
+    
+    @State private var showSignUp = false
+    
 
 	var body: some View {
-		Text(greet)
+        
+        if showSignUp {
+                    SignupView(showSignUp: $showSignUp)
+                } else {
+                    SignInView(showSignUp: $showSignUp)
+                }
 	}
 }
 
