@@ -10,9 +10,14 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		2D36A07D29A470A50058321F /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36A07C29A470A50058321F /* Koin.swift */; };
 		2D9EBE7A299DE84500A57307 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EBE79299DE84500A57307 /* SignIn.swift */; };
 		2DA53A1029A0AE240040DDF9 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53A0F29A0AE240040DDF9 /* SignInViewModel.swift */; };
 		2DA53A1429A343D00040DDF9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53A1329A343D00040DDF9 /* SignUpView.swift */; };
+		2DA53A1629A36F850040DDF9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DA53A1529A36F850040DDF9 /* Localizable.strings */; };
+		2DA53A1829A374400040DDF9 /* TripleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53A1729A374400040DDF9 /* TripleState.swift */; };
+		2DA53A1A29A380C30040DDF9 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53A1929A380C30040DDF9 /* StringExt.swift */; };
+		2DA53A1E29A3F5850040DDF9 /* FlowCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53A1D29A3F5850040DDF9 /* FlowCollector.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,9 +38,14 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		2D36A07C29A470A50058321F /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		2D9EBE79299DE84500A57307 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		2DA53A0F29A0AE240040DDF9 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		2DA53A1329A343D00040DDF9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		2DA53A1529A36F850040DDF9 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		2DA53A1729A374400040DDF9 /* TripleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripleState.swift; sourceTree = "<group>"; };
+		2DA53A1929A380C30040DDF9 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		2DA53A1D29A3F5850040DDF9 /* FlowCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCollector.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +98,11 @@
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				2DA53A0F29A0AE240040DDF9 /* SignInViewModel.swift */,
+				2DA53A1529A36F850040DDF9 /* Localizable.strings */,
+				2DA53A1729A374400040DDF9 /* TripleState.swift */,
+				2DA53A1929A380C30040DDF9 /* StringExt.swift */,
+				2DA53A1D29A3F5850040DDF9 /* FlowCollector.swift */,
+				2D36A07C29A470A50058321F /* Koin.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -160,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
+				2DA53A1629A36F850040DDF9 /* Localizable.strings in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,9 +207,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D36A07D29A470A50058321F /* Koin.swift in Sources */,
 				2DA53A1029A0AE240040DDF9 /* SignInViewModel.swift in Sources */,
+				2DA53A1829A374400040DDF9 /* TripleState.swift in Sources */,
 				2DA53A1429A343D00040DDF9 /* SignUpView.swift in Sources */,
+				2DA53A1A29A380C30040DDF9 /* StringExt.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				2DA53A1E29A3F5850040DDF9 /* FlowCollector.swift in Sources */,
 				2D9EBE7A299DE84500A57307 /* SignIn.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 			);

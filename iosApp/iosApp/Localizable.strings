@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  iosApp
+
+  Created by Gobinda Deb on 20/02/23.
+  Copyright © 2023 orgName. All rights reserved.
+*/
+
+
+"welcome_message" = "Welcome to my app!";
+"error" = "Error";
+"name_empty" = "Name is empty!";
+"password_empty" = "Password is Empty!";
+"confirm_password_empty" = "Conform Password is Empty!";
+"email_empty" = "Email is Empty!";
+"email_incorrect" = "Email is Incorrect!";
+"password_should" = "Password should contain at least 1 uppercase 1 lowercase 1 numeric and min 6 length to max 8!";
+"password_not_matched" = "Password not matched";
+"not_record_found" = "No Record Found";

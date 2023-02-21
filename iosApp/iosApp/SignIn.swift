@@ -7,16 +7,19 @@
 //
 
 import SwiftUI
+import shared
 
 struct SignInView: View {
     
     @Binding var showSignUp: Bool
     
-    @State private var email = ""
-    @State private var password = ""
+//    @State private var email = ""
+//    @State private var password = ""
+//
+//    @State private var emailError = "hi"
+//    @State private var passwordError = "hi"
     
-    @State private var emailError = "hi"
-    @State private var passwordError = "hi"
+    @StateObject var vm = SignInViewModel(repository: KotlinDependencies.shared.getUserRepo() , pref : UserDefaults(suiteName: "SAMPLE_SETTINGS")!)
     
     var body: some View {
         
@@ -27,8 +30,9 @@ struct SignInView: View {
             
             Group{
                 
-                TextField("Email", text: $email, onEditingChanged: { _ in
-                    emailError = ""
+                TextField("Email", text: $vm.uiState.email.value, onEditingChanged: { _ in
+                    vm.removerEmailError()
+                    
                 })
                 .padding()
                 .autocapitalization(.none)
@@ -37,11 +41,11 @@ struct SignInView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red, lineWidth: 1)
-                        .opacity(emailError.isEmpty ? 0 : 1)
+                        .opacity(!vm.uiState.email.isError ? 0 : 1)
                 )
                 
-                if !emailError.isEmpty {
-                    Text(emailError)
+                if vm.uiState.email.isError {
+                    Text(vm.uiState.email.message)
                         .font(.caption)
                         .frame(maxWidth:.infinity,
                                alignment: .topLeading)
@@ -51,17 +55,20 @@ struct SignInView: View {
                 }
                 
                             
-                SecureField("Password", text: $password)
+                SecureField("Password", text:$vm.uiState.pass.value )
+                    .onChange(of: vm.uiState.pass.value, perform: { _ in
+                        vm.removePassError()
+                    })
                 .padding()
                 .autocapitalization(.none)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.red, lineWidth: 1)
-                        .opacity(passwordError.isEmpty ? 0 : 1)
+                        .opacity(!vm.uiState.pass.isError ? 0 : 1)
                 )
                 
-                if !passwordError.isEmpty {
-                    Text(passwordError)
+                if vm.uiState.pass.isError {
+                    Text(vm.uiState.pass.message)
                         .font(.caption)
                         .frame(maxWidth:.infinity,
                                alignment: .topLeading)
@@ -82,7 +89,7 @@ struct SignInView: View {
             
             
             Button(action: {
-                
+                vm.validate()
             }) {
                 Text("Submit")
                     .foregroundColor(.white)

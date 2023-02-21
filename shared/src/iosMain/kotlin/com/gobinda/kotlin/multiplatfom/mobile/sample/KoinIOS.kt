@@ -1,5 +1,6 @@
 package com.gobinda.kotlin.multiplatfom.mobile.sample
 
+import com.gobinda.kotlin.multiplatfom.mobile.sample.data.UserRepository
 import com.gobinda.kotlin.multiplatfom.mobile.sample.db.SampleDb
 import com.russhwolf.settings.NSUserDefaultsSettings
 import com.russhwolf.settings.Settings
@@ -8,6 +9,7 @@ import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
 import io.ktor.client.engine.darwin.*
 import kotlinx.coroutines.Dispatchers
 import org.koin.core.KoinApplication
+import org.koin.core.component.KoinComponent
 import org.koin.dsl.module
 import platform.Foundation.NSUserDefaults
 
@@ -39,7 +41,7 @@ actual val platformModule = module {
 //fun Koin.loggerWithTag(tag: String) =
 //    get<Logger>(qualifier = null) { parametersOf(tag) }
 //
-//@Suppress("unused") // Called from Swift
-//object KotlinDependencies : KoinComponent {
-//    fun getBreedViewModel() = getKoin().get<BreedCallbackViewModel>()
-//}
+@Suppress("unused") // Called from Swift
+object KotlinDependencies : KoinComponent {
+    fun getUserRepo() : UserRepository = getKoin().get()
+}

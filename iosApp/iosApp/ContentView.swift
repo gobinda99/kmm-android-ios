@@ -4,6 +4,10 @@ import shared
 struct ContentView: View {
 	let greet = Greeting().greet()
     
+    init(){
+        startKoin()
+    }
+    
     @State private var showSignUp = false
     
 
